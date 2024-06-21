@@ -52,8 +52,8 @@ export class FinanceService {
     }
   }
 
-  deleteTransaction(index: number): void {
-    this.transactions.splice(index, 1);
+  deleteTransaction(id: string): void {
+    this.transactions = this.transactions.filter(transaction => transaction.id !== id);
     this.saveTransactions();
   }
 

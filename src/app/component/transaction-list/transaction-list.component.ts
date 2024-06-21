@@ -36,14 +36,14 @@ export class TransactionListComponent implements OnInit {
 
   deleteTransaction(id: any) {
     this.transactionService.deleteTransaction(id);
+    this.transactionService.getTransactions().subscribe(data => {
+      this.transactions = data;
+      if (this.dataSource) {
+        this.dataSource.data = this.transactions; // Update the data source
+      }
+    });
 
-      this.transactionService.getTransactions().subscribe(data => {
-        this.transactions = data;
-        if (this.dataSource) {
-          this.dataSource.data = this.transactions; // Update the data source
-        }
-      });
-    }
+  }
     editTransaction(transaction: Transaction) {
       this.router.navigate(['/edit-transaction', transaction.id]);
     }
