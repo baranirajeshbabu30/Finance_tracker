@@ -2,3 +2,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.custom-row{
+    display: flex;
+    flex-direction: column;
+    gap:60px
+}
