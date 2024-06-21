@@ -1,0 +1,47 @@
+<div class="card-align">
+  <mat-card class="content-align">
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-card-title class="custom-title">
+          {{ isEdit ? 'Edit Transaction' : 'Add Transaction' }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="spacing">
+        <mat-form-field>
+          <mat-label for="description">Description</mat-label>
+          <input matInput formControlName="description" id="description" placeholder="Description">
+          <mat-error *ngIf="transactionForm.get('description')?.hasError('required')">Description is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label for="amount">Amount</mat-label>
+          <input matInput formControlName="amount" id="amount" type="number" placeholder="Amount">
+          <mat-error *ngIf="transactionForm.get('amount')?.hasError('required')">Amount is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label for="date">Date</mat-label>
+          <input matInput formControlName="date" id="date" type="date" placeholder="Date">
+          <mat-error *ngIf="transactionForm.get('date')?.hasError('required')">Date is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="transactionForm.get('type')?.hasError('required')">Type is required</mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" class="button">Submit</button>
+          <button mat-raised-button color="primary" class="button" (click)="onCancel()">Cancel</button>
+        </div>
+
+      </mat-card-content>
+      <div *ngIf="submitted" class="message">
+        <p>{{ submitMessage }}</p>
+      </div>
+    </form>
+  </mat-card>
+</div>

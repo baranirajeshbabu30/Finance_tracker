@@ -1,0 +1,32 @@
+.card_align{
+display: flex;
+justify-content: space-between;
+}
+
+.content_align {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 600px;
+    height: 250px;
+    position: relative;
+    background-color: #53c159;
+}
+
+
+.custom-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.custom-title {
+    font-size: 50px;
+}
+
+.custom-content {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
